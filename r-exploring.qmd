@@ -1,0 +1,55 @@
+---
+title: "R Exploring"
+author: "Leilanie Rubinstein"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# load libraryies ----
+library(GGally)
+library(skimr)
+library(palmerpenguins)
+library(tidyverse)
+
+# always look at it ----
+View(penguins)
+
+# check the column names ----
+names(penguins)
+
+# look at the dimensions of the data frame ----
+dim(penguins)
+
+# get a summary ---- 
+summary(penguins)
+
+# get a summary with {skimr} ----
+skimr::skim(penguins)
+
+# print the first 6 rows ----
+head(penguins, n = 3)
+
+# print the last 6 rows ----
+tail(penguins)
+```
+
+
+```{r}
+# make a pairsplot ----
+GGally::ggpairs(penguins)
+
+GGally::ggpairs(penguins, columns = 3:6,
+                ggplot2::aes(color = species))
+
+# create histogram of penguin flipper lengths ----
+ggplot(data = penguins, aes(x = flipper_length_mm, fill = species)) + geom_histogriam()
+# no y variable bc it's just the frequency
+
+```
+
+
+
+
+
